@@ -9,4 +9,12 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 public class HttpSessionBean {
     private String name;
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
