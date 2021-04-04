@@ -1,0 +1,34 @@
+syntax="proto3";
+
+package ru.boostbrain;
+
+
+option java_multiple_files=false;
+option java_package="ru.boostbrain";
+
+message Letter{
+  string author = 1;
+  string addressee = 2;
+  string text = 3;
+}
+
+message SendMailRequest{
+  repeated Letter letters = 1;
+}
+
+message SendMailResponse{
+  bool success = 1;
+}
+
+message GetMailRequest{
+  string addressee = 1;
+}
+
+message GetMailResponse{
+  repeated Letter letters = 1;
+}
+
+service MailServer{
+  rpc sendMail(SendMailRequest) returns (SendMailResponse);
+  rpc getMail(GetMailRequest) returns (GetMailResponse);
+}
